@@ -1,33 +1,26 @@
 package com.company.repository;
 
-import com.company.modelo.Categoria;
 import com.company.modelo.Item;
-import com.company.modelo.Prioridade;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemRepository {
 
     private static List<Item> itens = new ArrayList<>();
 
-    public void iniciar() {
-        Item item = new Item();
-        item.setNome("ps4");
-        item.setDescricao("lalal");
-        item.setCategoria(Categoria.ELETRONICOS);
-        item.setValor(5555);
-        item.setPrioridade(Prioridade.ALTA);
+
+    public static void gravar(Item item) {
         itens.add(item);
+        System.out.println(item.getNome());
     }
 
-    public void gravar(Item item) {
-        itens.add(item);
-    }
-
-    public List<Item> getItem(){
+    public static List<Item> getItem(){
        return itens;
     }
 
-
+    public void deletar(UUID uuid) {
+        itens.removeIf(item1 -> item1.getID().equals(uuid));
+    }
 }

@@ -11,15 +11,15 @@ public class ValidadorCategoria implements Validador {
     private Validador validador;
 
     @Override
-    public List<Erro> validar(ItemDTO item, List<Erro> erros){
+    public List<ErroDeValidacao> validar(ItemDTO item, List<ErroDeValidacao> erroDeValidacaos){
         try {
             Categoria.valueOf(item.getCategoria().toUpperCase());
-            validador.validar(item, erros);
+            validador.validar(item, erroDeValidacaos);
         }
         catch(Exception e) {
-            erros.add(new Erro("Categoria Invalida"));
+            erroDeValidacaos.add(new ErroDeValidacao("Categoria Invalida"));
         }
-        return erros;
+        return erroDeValidacaos;
     }
 
     @Override

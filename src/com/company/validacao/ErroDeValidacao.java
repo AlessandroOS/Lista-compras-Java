@@ -1,9 +1,9 @@
 package com.company.validacao;
 
-public class Erro {
+public class ErroDeValidacao {
     private String descricao;
 
-    public Erro(String descricao) {
+    public ErroDeValidacao(String descricao) {
         this.descricao = descricao;
     }
 

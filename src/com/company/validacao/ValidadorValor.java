@@ -10,17 +10,17 @@ public class ValidadorValor implements Validador {
     private Validador validador;
 
     @Override
-    public List<Erro> validar(ItemDTO item, List<Erro> erros){
+    public List<ErroDeValidacao> validar(ItemDTO item, List<ErroDeValidacao> erroDeValidacaos){
         try {
             Double.parseDouble(item.getValor());
-            validador.validar(item, erros);
+            validador.validar(item, erroDeValidacaos);
         }
 
         catch(Exception e) {
             e.printStackTrace();
-            erros.add(new Erro("Valor Invalido"));
+            erroDeValidacaos.add(new ErroDeValidacao("Valor Invalido"));
         }
-        return erros;
+        return erroDeValidacaos;
     }
 
     @Override

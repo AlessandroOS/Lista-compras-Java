@@ -1,11 +1,14 @@
 package com.company.modelo;
 
+import java.util.UUID;
+
 public class Item {
     private String descricao;
     private double valor;
     private String nome;
     private Categoria categoria;
     private Prioridade prioridade;
+    private UUID ID = UUID.randomUUID();
 
     public String getDescricao() {
         return descricao;
@@ -45,5 +48,20 @@ public class Item {
 
     public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
+    }
+
+    public UUID getID() {
+        return ID;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Descricao= " + descricao +
+                        ", Valor= " + valor +
+                        ", Nome= " + nome +
+                        ", Categoria= " + categoria +
+                        ", Prioridade= " + prioridade +
+                        ", ID= " + ID;
     }
 }

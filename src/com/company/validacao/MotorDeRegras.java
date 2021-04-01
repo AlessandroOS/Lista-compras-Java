@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MotorDeRegras {
 
-    public List<Erro> iniciar(ItemDTO item) {
+    public List<ErroDeValidacao> iniciar(ItemDTO item) {
         Validador valor = new ValidadorValor();
         Validador categoria = new ValidadorCategoria();
         Validador prioridade = new ValidadorPrioridade();

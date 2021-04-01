@@ -5,7 +5,7 @@ import com.company.dto.ItemDTO;
 import java.util.List;
 
 public interface Validador {
-    List<Erro> validar(ItemDTO item, List<Erro> erros);
+    List<ErroDeValidacao> validar(ItemDTO item, List<ErroDeValidacao> erroDeValidacaos);
 
     void setNext(Validador validador);
 }

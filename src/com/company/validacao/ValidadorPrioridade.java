@@ -11,15 +11,15 @@ public class ValidadorPrioridade implements Validador {
     private Validador validador;
 
     @Override
-    public List<Erro> validar(ItemDTO item, List<Erro> erros){
+    public List<ErroDeValidacao> validar(ItemDTO item, List<ErroDeValidacao> erroDeValidacaos){
         try {
             Prioridade.valueOf(item.getPrioridade());
-            validador.validar(item, erros);
+            validador.validar(item, erroDeValidacaos);
         }
         catch(Exception e) {
-            erros.add(new Erro("Prioridade Invalido"));
+            erroDeValidacaos.add(new ErroDeValidacao("Prioridade Invalido"));
         }
-        return erros;
+        return erroDeValidacaos;
     }
 
     @Override

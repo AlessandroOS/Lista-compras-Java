@@ -10,16 +10,16 @@ public class ValidadorNome implements Validador {
     private Validador validador;
 
     @Override
-    public List<Erro> validar(ItemDTO item, List<Erro> erros){
+    public List<ErroDeValidacao> validar(ItemDTO item, List<ErroDeValidacao> erroDeValidacaos){
         if(item.getNome() == null || item.getNome().length() < 5){
-            Erro erroNome = new Erro("Nome deve ter no minimo 5 caracteres");
-            erros.add(erroNome);
+            ErroDeValidacao erroDeValidacaoNome = new ErroDeValidacao("Nome deve ter no minimo 5 caracteres");
+            erroDeValidacaos.add(erroDeValidacaoNome);
         } else {
             if(validador != null){
-                validador.validar(item, erros);
+                validador.validar(item, erroDeValidacaos);
             }
         }
-        return erros;
+        return erroDeValidacaos;
     }
 
     @Override

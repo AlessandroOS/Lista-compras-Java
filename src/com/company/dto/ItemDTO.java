@@ -1,5 +1,7 @@
 package com.company.dto;
 
+import java.util.UUID;
+
 public class ItemDTO {
     private String descricao;
     private String valor;
@@ -46,4 +48,5 @@ public class ItemDTO {
     public void setPrioridade(String prioridade) {
         this.prioridade = prioridade;
     }
+
 }
