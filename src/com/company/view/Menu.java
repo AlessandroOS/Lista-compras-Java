@@ -12,6 +12,7 @@ public class Menu {
                 System.out.println("1 Cadastrar");
                 System.out.println("2 Consultar");
                 System.out.println("3 Deletar");
+                System.out.println("4 Atualizar");
                 String opcao = "";
                 opcao = sc.nextLine();
 
@@ -33,6 +34,10 @@ public class Menu {
                     case "3":
                         DeletarView deletarView = new DeletarView(sc);
                         deletarView.executar();
+                        break;
+                    case "4":
+                        AtualizarView atualizarView = new AtualizarView(sc);
+                        atualizarView.executar();
                         break;
                 }
             } while (true);

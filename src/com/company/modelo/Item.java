@@ -1,5 +1,7 @@
 package com.company.modelo;
 
+import com.company.dto.ItemDTO;
+
 import java.util.UUID;
 
 public class Item {
@@ -8,7 +10,25 @@ public class Item {
     private String nome;
     private Categoria categoria;
     private Prioridade prioridade;
-    private UUID ID = UUID.randomUUID();
+    private UUID ID;
+
+    public Item(ItemDTO itemDTO, UUID id){
+        setDescricao(itemDTO.getDescricao());
+        setValor(Double.parseDouble(itemDTO.getValor()));
+        setNome(itemDTO.getNome());
+        setCategoria(Categoria.procurarCategoria(itemDTO.getCategoria()));
+        setPrioridade(Prioridade.procurarPrioridade(itemDTO.getPrioridade()));
+        this.ID = id;
+    }
+
+    public Item(ItemDTO itemDTO) {
+        setDescricao(itemDTO.getDescricao());
+        setValor(Double.parseDouble(itemDTO.getValor()));
+        setNome(itemDTO.getNome());
+        setCategoria(Categoria.procurarCategoria(itemDTO.getCategoria()));
+        setPrioridade(Prioridade.procurarPrioridade(itemDTO.getPrioridade()));
+        this.ID = UUID.randomUUID();
+    }
 
     public String getDescricao() {
         return descricao;
