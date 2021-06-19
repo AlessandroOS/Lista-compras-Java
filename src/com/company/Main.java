@@ -13,6 +13,7 @@ public class Main {
 
         UUID uuid = UUID.randomUUID();
         String uuidAsString = uuid.toString();
+
     }
 }
 

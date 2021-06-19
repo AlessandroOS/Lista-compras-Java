@@ -13,6 +13,7 @@ public class Menu {
                 System.out.println("2 Consultar");
                 System.out.println("3 Deletar");
                 System.out.println("4 Atualizar");
+                System.out.println("5 Filtrar por nome");
                 String opcao = "";
                 opcao = sc.nextLine();
 
@@ -27,7 +28,7 @@ public class Menu {
                         break;
 
                     case "2":
-                        ConsultaView consultaView = new ConsultaView();
+                        ConsultaView consultaView = new ConsultaView(sc);
                         consultaView.Consulta();
                         break;
 
@@ -39,6 +40,11 @@ public class Menu {
                         AtualizarView atualizarView = new AtualizarView(sc);
                         atualizarView.executar();
                         break;
+                    case "5":
+                        ConsultaView consulta = new ConsultaView(sc);
+                        consulta.filtrar();
+                        break;
+
                 }
             } while (true);
         }

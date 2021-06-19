@@ -1,8 +1,6 @@
 package com.company.repository;
 
-import com.company.dto.ItemDTO;
 import com.company.modelo.Item;
-import com.company.service.ItemService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +10,13 @@ public class ItemRepository {
 
     private static List<Item> itens = new ArrayList<>();
 
+    public List<Item> getItem() {
+        return itens;
+    }
+
     public void gravar(Item item) {
         itens.add(item);
         System.out.println("GRAVANDO: " + item);
-    }
-
-    public List<Item> getItem(){
-       return itens;
     }
 
     public void deletar(UUID uuid) {
@@ -31,4 +29,25 @@ public class ItemRepository {
         this.deletar(item.getID());
         this.gravar(item);
     }
+
+    public List<Item> filtarPorNome(String nome) {
+        List<Item> itemList = getItem();
+        List<Item> itemListName = new ArrayList<>();
+
+        for (Item item : itemList) {
+
+            System.out.println(item.getNome());
+
+            if (nome.equals(item.getNome()))
+            {
+                itemListName.add(item);
+            }
+            else
+            {
+                System.out.println("Nome não encontrado");
+            }
+        }
+        return itemListName;
+    }
+
 }

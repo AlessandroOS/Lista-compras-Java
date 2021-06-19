@@ -1,12 +1,8 @@
 package com.company.service;
 
 import com.company.dto.ItemDTO;
-import com.company.modelo.Categoria;
 import com.company.modelo.Item;
-import com.company.modelo.Prioridade;
 import com.company.repository.ItemRepository;
-import com.company.view.CadastroView;
-import com.company.view.DeletarView;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,7 +14,6 @@ public class ItemService {
         ItemRepository itemRepository = new ItemRepository();
         itemRepository.gravar(item);
     }
-
 
     public List<Item> executarConsulta() {
 
@@ -37,5 +32,11 @@ public class ItemService {
         Item itemNovo = new Item(itemDTO, item.getID());
         ItemRepository itemRepository = new ItemRepository();
         itemRepository.atualizar(itemNovo);
+    }
+
+    public List<Item> filtarPorNome (String nome) {
+        ItemRepository itemRepository = new ItemRepository();
+        List<Item> ItemPegadoDoBanco = itemRepository.filtarPorNome(nome);
+        return ItemPegadoDoBanco;
     }
 }

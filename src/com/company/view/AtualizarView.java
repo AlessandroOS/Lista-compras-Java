@@ -4,6 +4,8 @@ import com.company.dto.ItemDTO;
 import com.company.modelo.Item;
 import com.company.repository.ItemRepository;
 import com.company.service.ItemService;
+import com.company.validacao.ErroDeValidacao;
+import com.company.validacao.MotorDeRegras;
 
 import java.util.List;
 import java.util.Scanner;
@@ -32,6 +34,16 @@ public class AtualizarView {
         ItemDTO itemDTO = new LerDadosCadastro(sc).ler();
         Item item = itens.get(Integer.parseInt(indice));
 
-        itemService.atualizar(itemDTO, item);
+        MotorDeRegras motorDeRegras = new MotorDeRegras();
+        List<ErroDeValidacao> erroDeValidacaoList = motorDeRegras.iniciar(itemDTO);
+
+        if (erroDeValidacaoList.isEmpty()) {
+            itemService.atualizar(itemDTO, item);
+        } else {
+            for (ErroDeValidacao erro : erroDeValidacaoList) {
+                System.out.println(erro.getDescricao());
+            }
+        }
+
     }
 }
